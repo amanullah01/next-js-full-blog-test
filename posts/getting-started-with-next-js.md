@@ -1,6 +1,6 @@
 ---
 title: "Getting Started with NextJs"
-date: "2023-04-09"
+date: "2023-04-19"
 image: "getting-started-with-next-js.png"
 excert: Next js is the react framework for production
 isFeatured: true
