@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import classes from "./contact-form.module.css";
 import Notification from "../ui/notification";
 
@@ -24,6 +24,19 @@ const ContactForm = () => {
   const [requestStatus, setRequestStatus] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  useEffect(() => {
+    if (requestStatus === "success" || requestStatus === "error") {
+      const timer = setTimeout(() => {
+        setRequestStatus(null);
+        setErrorMessage(null);
+      }, 3000);
+
+      return () => {
+        clearTimeout(timer);
+      };
+    }
+  }, [requestStatus]);
+
   const sendMessageHandler = async (event) => {
     event.preventDefault();
 
@@ -35,6 +48,9 @@ const ContactForm = () => {
         message: enteredMessage,
       });
       setRequestStatus("success");
+      setEnteredEmail("");
+      setEnteredName("");
+      setEnteredMessage("");
     } catch (error) {
       setErrorMessage(error.message);
       setRequestStatus("error");
