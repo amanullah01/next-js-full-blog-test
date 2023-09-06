@@ -1,5 +1,37 @@
+import FeaturedPosts from "@/components/home-page/featured-posts";
 import Hero from "@/components/home-page/hero";
 import Head from "next/head";
+
+const DUMMY_POSTS = [
+  {
+    slug: "getting-started-with-next-js-1",
+    title: "Getting Started With Next Js",
+    date: "2023-06-29",
+    image: "getting-started-with-next-js.png",
+    excerpt: "NextJs is the React framework for production.",
+  },
+  {
+    slug: "getting-started-with-next-js-2",
+    title: "Getting Started With Next Js2",
+    date: "2023-06-29",
+    image: "getting-started-with-next-js.png",
+    excerpt: "NextJs is the React framework for production.",
+  },
+  {
+    slug: "getting-started-with-next-js-3",
+    title: "Getting Started With Next Js",
+    date: "2023-06-29",
+    image: "getting-started-with-next-js.png",
+    excerpt: "NextJs is the React framework for production.",
+  },
+  {
+    slug: "getting-started-with-next-js-4",
+    title: "Getting Started With Next Js",
+    date: "2023-06-29",
+    image: "getting-started-with-next-js.png",
+    excerpt: "NextJs is the React framework for production.",
+  },
+];
 
 export default function HomePage() {
   return (
@@ -11,6 +43,7 @@ export default function HomePage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Hero />
+      <FeaturedPosts posts={DUMMY_POSTS} />
     </>
   );
 }
