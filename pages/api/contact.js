@@ -18,9 +18,11 @@ const handler = async (req, res) => {
 
     const newMessage = { name, email, message };
 
+    let connectionString = `mongodb://127.0.0.1:27017/${process.env.mongodb_database}`;
+
     let client;
     try {
-      client = await MongoClient.connect("mongodb://127.0.0.1:27017/blog-test");
+      client = await MongoClient.connect(connectionString);
     } catch (error) {
       res.status(500).json({ message: "Connection failed" });
       return;
